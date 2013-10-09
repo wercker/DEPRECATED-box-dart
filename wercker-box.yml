@@ -18,8 +18,9 @@ script: |
     export PATH="$PATH:$DART_SDK/bin"
 
     # Write environment variables
-    echo 'export DART_SDK="$HOME/dart-sdk' >> $HOME/.bash_profile
-    echo 'export PATH="$PATH:$DART_SDK/bin' >> $HOME/.bash_profile
+    echo 'DART_SDK="$HOME/dart-sdk' | sudo tee -a /etc/environment
+    echo 'PATH="$PATH:$DART_SDK/bin' | sudo tee -a /etc/environment
 
     # Assert dart command
     type dart || { echo "PATH: $PATH"; echo "dart command not availble after installation, terminating."; exit 1; }
+    type pub || { echo "PATH: $PATH"; echo "pub command not availble after installation, terminating."; exit 1; }
