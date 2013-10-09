@@ -5,8 +5,8 @@ type: main
 platform: ubuntu@12.04
 description: "A box create to build, test and deploy Dart applications"
 script: |
-	# Install Dart SDK
-	wget -O - "https://storage.googleapis.com/dart-editor-archive-integration/latest/dartsdk-linux-64.tar.gz" | \
+    # Install Dart SDK
+    wget -O - "https://storage.googleapis.com/dart-editor-archive-integration/latest/dartsdk-linux-64.tar.gz" | \
         tar zvxf -C $HOME/
     
     # Write environment variables
