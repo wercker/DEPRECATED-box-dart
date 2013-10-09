@@ -4,7 +4,7 @@ inherits: wercker/ubuntu12.04-webessentials@0.0.11
 type: main
 platform: ubuntu@12.04
 description: "A box create to build, test and deploy Dart applications"
-scr
+script: |
     cd $HOME
 
     # Install Dart SDK
