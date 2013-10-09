@@ -6,9 +6,10 @@ platform: ubuntu@12.04
 description: "A box create to build, test and deploy Dart applications"
 script: |
     # Install Dart SDK
-    wget -O - "https://storage.googleapis.com/dart-editor-archive-integration/latest/dartsdk-linux-64.tar.gz" | \
-        tar zvxf -C $HOME/
-    
+    wget "https://storage.googleapis.com/dart-editor-archive-integration/latest/dartsdk-linux-64.tar.gz"
+    tar zvxf  dartsdk-linux-64.tar.gz -C $HOME/
+    rm dartsdk-linux-64.tar.gz
+
     # Write environment variables
     echo 'export DART_SDK="$HOME/dart_sdk' >> $HOME/.bash_profile
     echo 'export PATH="$PATH:$DART_SDK/bin' >> $HOME/.bash_profile
