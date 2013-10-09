@@ -1,0 +1,19 @@
+name: dart
+version: 0.0.1-dev1
+inherits: wercker/ubuntu12.04-webessentials@0.0.11
+type: main
+platform: ubuntu@12.04
+description: "A box create to build, test and deploy Dart applications"
+script: |
+	# Install Dart SDK
+	wget -O - "https://storage.googleapis.com/dart-editor-archive-integration/latest/dartsdk-linux-64.tar.gz" | \
+        tar zvxf -C $HOME/
+    
+    # Write environment variables
+    echo 'export DART_SDK="$HOME/dart_sdk' >> $HOME/.bash_profile
+    echo 'export PATH="$PATH:$DART_SDK/bin' >> $HOME/.bash_profile
+
+    # Update environment variables
+    source $HOME/.bash_profile
+
+    type dart || { echo "dart command not availble after installation, terminating."; exit 1; }
