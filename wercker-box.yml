@@ -14,12 +14,13 @@ script: |
     # Assert dart_sdk directory
     test -d $HOME/dart-sdk || { echo "$(ls -a $HOME)" ; echo "dart-sdk directory not found at $HOME/dart_sdk, terminating."; exit 1; }
 
-    # Write environment variables
-    echo "DART_SDK=\"$HOME/dart-sdk\"" | sudo tee -a /etc/environment
-    echo "PATH=\"$PATH:$DART_SDK/bin\"" | sudo tee -a /etc/environment
-
+    # Export variables
     export DART_SDK="$HOME/dart-sdk"
     export PATH="$PATH:$DART_SDK/bin"
+
+    # Write environment variables
+    echo "DART_SDK=\"$HOME/dart-sdk\"" | sudo tee -a /etc/environment
+    echo "PATH=\"$PATH\"" | sudo tee -a /etc/environment
 
     # Assert dart command
     type dart || { echo "PATH: $PATH"; echo "dart command not availble after installation, terminating."; exit 1; }
