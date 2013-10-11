@@ -25,3 +25,6 @@ script: |
     # Assert dart command
     type dart || { echo "PATH: $PATH"; echo "dart command not availble after installation, terminating."; exit 1; }
     type pub || { echo "PATH: $PATH"; echo "pub command not availble after installation, terminating."; exit 1; }
+
+    # Link cache directory
+    ln -s "$HOME/.pub-cache" "$WERCKER_CACHE_DIR/.pub-cache"
