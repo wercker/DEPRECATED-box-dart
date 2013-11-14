@@ -5,6 +5,9 @@ type: main
 platform: ubuntu@12.04
 description: "A box create to build, test and deploy Dart applications"
 script: |
+    sudo apt-get update -y -qq
+    sudo apt-get instaal unzip -y -qq
+    
     cd $HOME
 
     # Install Dart SDK
